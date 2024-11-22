@@ -35,11 +35,19 @@ function DatabaseStatus() {
     refreshInterval: 2000,
   });
 
-  let databaseStatusInformation = "Carregando...";
+  let databaseStatusInformation = (
+    <>
+      <div>Database status: 🔴</div>
+      <div>Versão: carregando...</div>
+      <div>Conexões abertas: carregando...</div>
+      <div>Conexões máximas: carregando...</div>
+    </>
+  );
 
   if (!isLoading && data) {
     databaseStatusInformation = (
       <>
+        <div>Database status: 🟢</div>
         <div>Versão: {data.dependencies.database.version}</div>
         <div>
           Conexões abertas: {data.dependencies.database.opened_connections}
